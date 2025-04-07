@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>No.1</h1>
+    <input type="text" placeholder="enter your address" id="address">
+    <button onclick="processAddress()">Process</button>
+    <div id="newAddress"></div>
+
+    <h1>No.2</h1>
+    <input type="text" placeholder="write your text" id="essay">
+    <button onclick="processEssay()">Process</button>
+    <div id="newLetter"></div>
+
+    <h1>No.3</h1>
+    <input type="text" placeholder="enter strong password" id="password">
+    <button onclick="checkPassword()">Sign up</button>
+    <div id="strongPassword"></div>
+
+    <h1>No.4</h1>
+    <input type="text" placeholder="enter your answer" id="answer">
+    <button onclick="processQuiz()">Submit</button>
+    <div id="newAnswer" style="color: rgba(255, 0, 0, 0.562);"></div>
+    <div id="newQuiz"></div>
+
+    <h1>No.5</h1>
+    <input type="text" placeholder="enter your username" id="username">
+    <button onclick="processUsername()">Create New Account</button>
+    <div id="noUsername" style="color: rgba(255, 0, 0, 0.562);"></div>
+    <div id="newUsername" style="color: rgba(31, 151, 31, 0.705);"></div>
+</body>
+
+<script>
+    //no.1
+    function processAddress() {
+        if (address.value == "") {
+            alert("Please enter your address")
+        }
+        else{
+            var letter = (address.value).toLowerCase()
+            newAddress.innerHTML =letter
+        }
+    }
+
+    //no.2
+    function processEssay(){
+        if (essay.value == "") {
+            alert("Space can not be empty")
+        }
+        else{
+            var letter = (essay.value).trim() .replaceAll(/\s=/g, ' ')
+            newLetter.innerHTML = letter
+        }
+    }
+
+    // //no.3
+    // function checkPassword() {
+    //     // var hasUpperCase = true;
+    //     // var hasLowerCase = true;
+    //     // var hasNumber = true;
+    //     // var hasSpecialChar = true;
+    //     // var specialChars = "!@#$%^&*()_+[]{}|;:,.<>?";
+    //     // var passwordLength = 8;
+    //     // var password = password.value;
+
+    //     if (){
+    //         var lenght = (password.length <= 8) 
+    //         alert("Password must be at least 8 characters long")
+    //     }
+    // }
+
+    //no.4
+    function processQuiz() {
+        if (answer.value == "") {
+            var letter = "Please enter your answer"
+            alert("Space can not be empty")
+            newAnswer.innerHTML = letter;
+            
+        }
+        else{
+            var letter = (answer.value).toLowerCase()
+            var quiz = (answer.value).toUpperCase()
+            newQuiz.innerHTML = quiz
+        }
+    }
+
+    //no.5
+    function processUsername() {
+        var usernamePattern = /^[A-Za-z0-9_]+$/
+
+        if(usernamePattern.test(username)) {
+            alert("username is vallid");
+            newUsername.innerHTML = username;
+        }else{
+            alert("Invalid username! Use only letters, numbers, and underscores. No space")
+        }
+    }
+</script>
+</html>
