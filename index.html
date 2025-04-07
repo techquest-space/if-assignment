@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <h1>No.1</h1>
     <input type="text" placeholder="enter your address" id="address">
-    <button onclick="processAddress()">Process</button>
+    <button onclick="checkAddress()">Process</button>
     <div id="newAddress"></div>
 
     <h1>No.2</h1>
@@ -18,7 +20,7 @@
     <div id="newLetter"></div>
 
     <h1>No.3</h1>
-    <input type="text" placeholder="enter strong password" id="password">
+    <input type="text" placeholder="enter strong password" id="passwordInput">
     <button onclick="checkPassword()">Sign up</button>
     <div id="strongPassword"></div>
 
@@ -37,54 +39,53 @@
 
 <script>
     //no.1
-    function processAddress() {
+    function checkAddress() {
         if (address.value == "") {
             alert("Please enter your address")
         }
-        else{
+        else {
             var letter = (address.value).toLowerCase()
-            newAddress.innerHTML =letter
+            newAddress.innerHTML = letter
         }
     }
 
-    //no.2
-    function processEssay(){
+    //no.3
+    function processEssay() {
         if (essay.value == "") {
             alert("Space can not be empty")
         }
-        else{
-            var letter = (essay.value).trim() .replaceAll(/\s=/g, ' ')
+        else {
+            var letter = (essay.value).trim().replaceAll(/\s=/g, ' ')
             newLetter.innerHTML = letter
         }
     }
 
-    // //no.3
-    // function checkPassword() {
-    //     // var hasUpperCase = true;
-    //     // var hasLowerCase = true;
-    //     // var hasNumber = true;
-    //     // var hasSpecialChar = true;
-    //     // var specialChars = "!@#$%^&*()_+[]{}|;:,.<>?";
-    //     // var passwordLength = 8;
-    //     // var password = password.value;
+     //no.4
+    function checkPassword() {
+        var hasUpperCase = true;
+        var hasLowerCase = true;
+        var hasNumber = true;
+        var hasSpecialChar = true;
+        var specialChars = "!@#$%^&*()_+[]{}|;:,.<>?";
+        var passwordLength = 8;
+        var password = passwordInput.value;
 
-    //     if (){
-    //         var lenght = (password.length <= 8) 
-    //         alert("Password must be at least 8 characters long")
-    //     }
-    // }
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long")
+        }
+    }
 
-    //no.4
+    //no.7
     function processQuiz() {
         if (answer.value == "") {
             var letter = "Please enter your answer"
+    
             alert("Space can not be empty")
             newAnswer.innerHTML = letter;
-            
+
         }
-        else{
-            var letter = (answer.value).toLowerCase()
-            var quiz = (answer.value).toUpperCase()
+        else {
+            var quiz= (answer.value).toLowerCase()
             newQuiz.innerHTML = quiz
         }
     }
@@ -93,12 +94,13 @@
     function processUsername() {
         var usernamePattern = /^[A-Za-z0-9_]+$/
 
-        if(usernamePattern.test(username)) {
+        if (usernamePattern.test(username)) {
             alert("username is vallid");
             newUsername.innerHTML = username;
-        }else{
+        } else {
             alert("Invalid username! Use only letters, numbers, and underscores. No space")
         }
     }
 </script>
+
 </html>
