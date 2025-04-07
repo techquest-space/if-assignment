@@ -92,13 +92,16 @@
 
     //no.5
     function processUsername() {
-        var usernamePattern = /^[A-Za-z0-9_]+$/
-
-        if (usernamePattern.test(username)) {
-            alert("username is vallid");
+        var outputIn = username.value
+        if(outputIn.match(/\s+/g)){
+            alert("there should be no space")
+        }
+        else if (!outputIn.match(/^[A-Za-z0-9_]+$/)) {
+            alert("use letters, numbers and underscores only");
             newUsername.innerHTML = username;
-        } else {
-            alert("Invalid username! Use only letters, numbers, and underscores. No space")
+        } 
+        else {
+            alert("Welcome")
         }
     }
 </script>
